@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2016  m13o
 
-;; Version 1.0 (19 January 2016)
+;; Version 1.1 (05 June 2021)
 ;; Author: m13o
 ;; Keywords: extensions
 
@@ -29,9 +29,6 @@
 ;; * Installation
 ;; Place this file in your Emacs load path.
 ;;
-;; * FYI
-;; https://developer.apple.com/library/ios/documentation/Metal/Reference/MetalShadingLanguageGuide/data-types/data-types.html
-;;
 
 ;;; Code:
 
@@ -45,12 +42,19 @@
                                               c++-font-lock-keywords-1
                                               c++-font-lock-keywords-2
                                               c++-font-lock-keywords-3
-                                              '(("\\<\\(fragment\\|constant\\|vertex\\|device\\|Uniforms\\)\\>" . font-lock-keyword-face)
+                                              '(("\\<amplification_count\\|base_\\(vertex\\|instance\\)\\|\\(vertex\\|instance\\|amplification\\|patch\\)_id\\|position_in_patch\\|\\(fragment\\|constant\\|vertex\\|device\\|Uniforms\\)\\>" . font-lock-keyword-face)
                                                 ("\\<\\(\\(packed_\\)?\\(bool\\|u?char\\|u?short\\|u?int\\|harf\\|float\\)[2-4]?\\|harf[2-4]x[2-4]\\|float[2-4]x[2-4]\\|atomic_u?int\\)\\>" . font-lock-type-face)
                                                 ("\\<\\(sampler\\|texture\\([1-3]d\\|cube\\)\\(_array\\|_ms\\)?\\|\\(depth\\(2d\\|cube\\)\\(_array\\|_ms\\)?\\)\\)\\>" . font-lock-type-face))))
-  (setq font-lock-defaults '(metal-mode-font-lock-keywords)))
+(setq font-lock-defaults '(metal-mode-font-lock-keywords)))
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("\\.metal\\'" . metal-mode))
 
 (provide 'metal-mode)
+
+;; Local Variables:
+;; coding: utf-8
+;; indent-tabs-mode: nil
+;; End:
+
+;;; metal-mode.el ends here
